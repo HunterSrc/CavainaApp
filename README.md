@@ -104,3 +104,5 @@ Output tipico: `build/web/`
 - `test/widget_test.dart` → test widget iniziale
 - `pubspec.yaml` → dipendenze e metadata progetto
 - `analysis_options.yaml` → lint Flutter
+- `assets/brand/` → asset identity/brand (logo, icone, immagini istituzionali)
+
