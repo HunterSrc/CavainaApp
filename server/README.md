@@ -51,6 +51,43 @@ npx prisma migrate dev
 npm run dev
 ```
 
+## PostgreSQL con Docker (consigliato per setup locale)
+Avvia un database PostgreSQL compatibile con la configurazione del server (Prisma + timezone Europe/Rome + persistenza volume):
+
+```bash
+cd server
+docker compose -f docker-compose.postgres.yml up -d
+```
+
+Verifica stato:
+```bash
+docker compose -f docker-compose.postgres.yml ps
+docker compose -f docker-compose.postgres.yml logs -f postgres
+```
+
+Arresto:
+```bash
+docker compose -f docker-compose.postgres.yml down
+```
+
+Arresto + rimozione dati (reset locale):
+```bash
+docker compose -f docker-compose.postgres.yml down -v
+```
+
+### DATABASE_URL da usare con questo Docker
+Nel file `server/.env`:
+```env
+DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cavaina_app
+```
+
+Poi esegui le migration:
+```bash
+npx prisma migrate dev
+```
+
+Nota: il volume Docker (`cavaina_postgres_data`) mantiene i dati anche dopo `down` (finché non usi `down -v`).
+
 ## Variabili env principali
 Vedi `server/.env.example`.
 
@@ -61,6 +98,12 @@ Minime obbligatorie:
 - `SUPERSAAS_ACCOUNT`
 - `SUPERSAAS_API_KEY`
 - `SUPERSAAS_SCHEDULE_ID=584424`
+
+Suggerimento per i JWT secret (non sono token, sono chiavi di firma):
+```bash
+openssl rand -base64 32
+openssl rand -base64 32
+```
 
 ## Comportamento business implementato
 - slot fissi **2 ore**

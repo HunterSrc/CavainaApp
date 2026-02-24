@@ -1,0 +1,34 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cavaina-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: cavaina_app
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: Europe/Rome
+      PGTZ: Europe/Rome
+    command:
+      - postgres
+      - -c
+      - timezone=Europe/Rome
+      - -c
+      - log_timezone=Europe/Rome
+      - -c
+      - max_connections=200
+    ports:
+      - "5432:5432"
+    volumes:
+      - cavaina_postgres_data:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d cavaina_app"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+volumes:
+  cavaina_postgres_data:
+

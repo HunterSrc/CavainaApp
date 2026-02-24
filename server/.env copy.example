@@ -5,8 +5,8 @@ LOG_LEVEL=info
 
 DATABASE_URL=postgresql://postgres:postgres@localhost:5432/cavaina_app
 
-JWT_ACCESS_SECRET=change-me-access-secret
-JWT_REFRESH_SECRET=change-me-refresh-secret
+JWT_ACCESS_SECRET=asf
+JWT_REFRESH_SECRET=asdf
 JWT_ACCESS_TTL=15m
 JWT_REFRESH_TTL=30d
 
@@ -16,8 +16,8 @@ RATE_LIMIT_WINDOW=1 minute
 
 APP_TIMEZONE=Europe/Rome
 SUPERSAAS_TIMEZONE=Europe/Rome
-SUPERSAAS_ACCOUNT=cavainait
-SUPERSAAS_API_KEY=oaMl2708V1df0MMjmtmg-w
+SUPERSAAS_ACCOUNT=asdf
+SUPERSAAS_API_KEY=asdf
 SUPERSAAS_SCHEDULE_ID=582183
 SUPERSAAS_BASE_URL=https://www.supersaas.com/api
 SUPERSAAS_TIMEOUT_MS=10000
