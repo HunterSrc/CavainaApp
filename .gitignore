@@ -4,8 +4,14 @@
 *.log
 *.pyc
 *.swp
+.DS_Store
+.env
+.env.*
 .buildlog/
 .history
+.idea/
+.vscode/
+*.iml
 
 
 
@@ -34,6 +40,7 @@ analysis_benchmark.json
 # Flutter/Dart/Pub related
 **/doc/api/
 .dart_tool/
+.metadata
 .flutter-plugins
 .flutter-plugins-dependencies
 **/generated_plugin_registrant.dart
@@ -41,6 +48,9 @@ analysis_benchmark.json
 .pub-preload-cache/
 .pub/
 build/
+dist/
+out/
+.fvm/
 flutter_*.png
 linked_*.ds
 unlinked.ds
@@ -93,6 +103,7 @@ unlinked_spec.ds
 **/macos/Flutter/GeneratedPluginRegistrant.swift
 **/macos/Flutter/ephemeral
 **/xcuserdata/
+DerivedData/
 
 # Windows
 **/windows/flutter/generated_plugin_registrant.cc

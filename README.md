@@ -38,6 +38,20 @@ Progetto base Flutter inizializzato per partire rapidamente con sviluppo locale,
    flutter create .
    ```
 
+## Logo e icona app
+
+- La cartella `assets/brand/LOGO_Ca_Vaina/` contiene i loghi brand.
+- L'icona installata dell'app è configurata per usare:
+  `assets/brand/LOGO_Ca_Vaina/CAVAINA_LOGO_BADGE.png`
+  (corrispondente al badge indicato anche in versione SVG `CAVAINA_LOGO_BADGE-01.svg`).
+
+Per generare le icone launcher native (Android/iOS) dopo aver creato le piattaforme:
+
+```bash
+flutter pub get
+dart run flutter_launcher_icons
+```
+
 ## Avvio in locale (preview)
 
 1. Lista dispositivi disponibili:
@@ -105,4 +119,3 @@ Output tipico: `build/web/`
 - `pubspec.yaml` → dipendenze e metadata progetto
 - `analysis_options.yaml` → lint Flutter
 - `assets/brand/` → asset identity/brand (logo, icone, immagini istituzionali)
-

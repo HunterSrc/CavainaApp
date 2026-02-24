@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'login.dart';
+
 void main() {
   runApp(const CavainaApp());
 }
@@ -11,90 +13,28 @@ class CavainaApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CavainaApp',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      home: const LoginPage(),
-    );
-  }
-}
-
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  bool _isPasswordVisible = false;
-
-  @override
-  void dispose() {
-    _usernameController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
-      body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 420),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                TextField(
-                  controller: _usernameController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: const InputDecoration(
-                    labelText: 'Username o Email',
-                    hintText: 'Inserisci username o email',
-                    border: OutlineInputBorder(),
-                  ),
-                ),
-                const SizedBox(height: 12),
-                TextField(
-                  controller: _passwordController,
-                  obscureText: !_isPasswordVisible,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Inserisci password',
-                    border: const OutlineInputBorder(),
-                    suffixIcon: IconButton(
-                      tooltip: _isPasswordVisible
-                          ? 'Nascondi password'
-                          : 'Mostra password',
-                      icon: Icon(
-                        _isPasswordVisible
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          _isPasswordVisible = !_isPasswordVisible;
-                        });
-                      },
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {},
-                  child: const Text('Accedi'),
-                ),
-              ],
-            ),
-          ),
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF2D282A),
+        colorScheme: const ColorScheme(
+          brightness: Brightness.dark,
+          primary: Color(0xFFE26A2B),
+          onPrimary: Colors.white,
+          secondary: Color(0xFFFF8A4F),
+          onSecondary: Colors.white,
+          error: Color(0xFFFF6B6B),
+          onError: Colors.white,
+          surface: Color(0xFF3A3437),
+          onSurface: Colors.white,
+        ),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF2D282A),
+          foregroundColor: Colors.white,
+          elevation: 0,
         ),
       ),
+      home: const LoginPage(),
     );
   }
 }

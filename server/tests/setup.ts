@@ -1,0 +1,11 @@
+process.env.NODE_ENV = 'test';
+process.env.PORT = '3001';
+process.env.HOST = '127.0.0.1';
+process.env.LOG_LEVEL = 'silent';
+process.env.DATABASE_URL = process.env.DATABASE_URL ?? 'postgresql://postgres:postgres@localhost:5432/test';
+process.env.JWT_ACCESS_SECRET = 'test_access_secret_123456789';
+process.env.JWT_REFRESH_SECRET = 'test_refresh_secret_123456789';
+process.env.SUPERSAAS_ACCOUNT = 'test-account';
+process.env.SUPERSAAS_API_KEY = 'test-key';
+process.env.SUPERSAAS_SCHEDULE_ID = '584424';
+process.env.SUPERSAAS_BASE_URL = 'https://example.com';
